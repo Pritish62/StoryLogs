@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -29,4 +30,41 @@ h1{
     font-size: 16px;
     font-weight: 500;
     padding-top: 10px;
+}
+svg image{
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+}
+
+#newpost{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+#newpost a{
+    width: 8rem;
+    height: 2rem;
+    color: white;
+    text-decoration: none;
+    background-color: #047EBF;
+    padding: 0.8rem;
+    border-radius: 1rem;
+}
+
+.read-more a{
+    text-decoration: none;
+    padding: 0.4rem;
+    border-radius: 1rem;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 12px;
+    border: 2px solid #003d4e;
+    box-shadow: 4px 5px #837d7d;
+
+}
+.read-more{
+    display: flex;
+    justify-content: right;
 }
