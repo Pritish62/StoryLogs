@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 let posts = [
     {
-        id : uuidv4(),
+        id : uuidv4(),  //ganerate randome id
         username: "pritish",
         content: "I Love coding",
     },
@@ -37,21 +37,23 @@ app.get("/posts", (req, res)=> {
     res.render("index.ejs", { posts });
 });
 
+//Serve the form
 app.get("/posts/new", (req,res) => {
     res.render("new.ejs");
 });
 
+//Add new post
 app.post("/posts" , (req , res) => {
     let { username , content } = req.body;
     let id = uuidv4();
     posts.push({id, username , content });
-    res.redirect("/posts");
+    res.redirect("/posts");  //redirect to the .get/posts
     
 });
 
+//to get one post
 app.get("/posts/:id" , (req , res) => {
     let {id} = req.params;
-
     let post = posts.find(p => String(id) === String(p.id));
     if(!post){
         return res.status(404).send("Page Not Found");
@@ -59,20 +61,23 @@ app.get("/posts/:id" , (req , res) => {
     res.render("show.ejs" , { post });
 });
 
+//Update specific post
 app.patch("/posts/:id" , (req , res) => {
-    let {id} = req.params;
-    let newcontent = req.body.content;
+    let {id} = req.params.id;
+    let newcontent = req.body;
     let post = posts.find(p => String(id) === String(p.id));
     post.content = newcontent;
-    res.send("patch request is working");
-});
+    res.redirect("/posts");
+}); 
 
+//serve the edit form
 app.get("/posts/:id/edit" , (req, res) => {
-    let {id} = req.params.id;
+    let {id} = req.params;
     let post = posts.find(p => String(id) === String(p.id));
-    res.render("edit.ejs");
+    res.render("edit.ejs",{post});
 
 });
+
 app.listen(port, () => {
     console.log("server is listening");
 });
