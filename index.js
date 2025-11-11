@@ -5,10 +5,10 @@ const path = require("path");
 const {v4: uuidv4 } = require("uuid")
 const methodOverride = require("method-override");
 
+//Body parser
+app.use(express.urlencoded({ extended: true }));
 
-
-app.use(express.urlencoded({express : true}));
-app.use(methodOverride('__method'));
+app.use(methodOverride('_method'));
 
 app.set("view engine" , "ejs");
 app.set("views" , path.join(__dirname, "views"));
@@ -63,10 +63,10 @@ app.get("/posts/:id" , (req , res) => {
 
 //Update specific post
 app.patch("/posts/:id" , (req , res) => {
-    let {id} = req.params.id;
-    let newcontent = req.body;
+    let {id} = req.params;  //(fixed)  extract id properly
+   const {content} = req.body;
     let post = posts.find(p => String(id) === String(p.id));
-    post.content = newcontent;
+    post.content = content;  //(Fixed)   // extract content from the body (because the form's textarea has name="content")
     res.redirect("/posts");
 }); 
 
