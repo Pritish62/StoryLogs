@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Post</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <form method="post" action="/posts" >
-        <input placeholder="enter username" name="username"> <br> <br>
-        <textarea placeholder="Write somthing" name="content"></textarea>
-        <button>Submit</button>
-    </form>
+    <img class="logo" src="/image/logo.png" alt="logo" height="70" width="300">
+    <div class=" posts">
+        <h2>Edit your Post</h2>
+        <form class="sub-container" method="post" action="/posts">
+            <input id="user-input" placeholder="enter username" name="username"> <br> <br>
+            <input type="file" name="image"> <br> <br>
+            <textarea placeholder="Write somthing" name="content" rows="10" cols="45"></textarea>
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+
 </body>
+
 </html>
