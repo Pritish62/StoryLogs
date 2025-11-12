@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Post</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <h2>Edit your post  </h2>
-    <p>ID: <%= post.id %> </p>
-    <p>Username: @<%= post.username %> </p>
-    <form method="post" action="/posts/<%= post.id %>?_method=PATCH" >
-        <textarea name="content" id=""><%= post.content %> </textarea>
-        <button>SUBMIT</button>
-    </form>
+    <img class="logo" src="/image/logo.png" alt="logo" height="70" width="300">
+    <div class="posts">
+        <h2>Edit your post </h2>
+        <div class="sub-container">
+            <p>ID: <%= post.id %>
+            </p>
+            <p>Username: @<%= post.username %>
+            </p>
+            <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+                <textarea name="content" id="" rows="7" cols="45" ><%= post.content %> </textarea> <br> <br>
+                <img src="/<%= post.image %>" alt="post img" height="200" width="300"> <br> <br>
+                <input type="file" name="image"> <br> <br>
+                <button class="btn">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+
 </body>
+
 </html>
