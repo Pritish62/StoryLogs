@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOW POST</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <h2>Here is your post detail</h2>
-    <div class="container">
-        <h4>Post ID: <%= post.id %></h4>
-        <h3>@<%= post.username %></h3>
-        <p><%= post.content %></p>
+    <img class="logo" src="/image/logo.png" alt="logo" height="70" width="300">
+    <div class="posts" id="show-card">
+        <div class="container">
+            <h2>Here is your post detail</h2>
+            <div class="sub-container">
+                <h4>Post ID: <%= post.id %>
+                </h4>
+                <h3>@<%= post.username %>
+                </h3>
+                <p>
+                    <%= post.content %>
+                </p>
+                <img src="/<%= post.image %>" alt="post img" height="200" width="300">
+            </div>
+        </div>
     </div>
-    
 </body>
+
 </html>
